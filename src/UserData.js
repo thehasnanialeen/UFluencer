@@ -8,7 +8,12 @@ class UserData extends Component {
         this.state = {
             userType: '',
             business: {
-                typeOfBusiness: '',
+                typeOfBusiness: [
+                    {type: "E-Commerce", checked: false},
+                    {type: "Retail", checked: false},
+                    {type: "Restaurant", checked: false},
+                    {type: "Others", checked: false},
+                ],
                 goals: [
                     {goal: "Sales", checked: false},
                     {goal: "Increase Brand Awareness", checked: false},
@@ -21,7 +26,7 @@ class UserData extends Component {
                     postalCode: '',
                 },
                 numberLocations: '',
-                locationPostalCodes: [],
+                locationPostalCodes: '',
                 targetCommunity: [
                     {community: "Residential", checked: false},
                     {community: "Colleges", checked: false},
@@ -95,7 +100,14 @@ class UserData extends Component {
                 numInteractions: '',
             },
             submitted: false,
+            result: []
         }
+    }
+
+    handleTypeBussinessChange(id){
+        let business = this.state.business;
+        business.typeOfBusiness[id].checked = !business.typeOfBusiness[id].checked;
+        this.setState({business: business});
     }
 
     handleGoalsChange(id) {
@@ -123,6 +135,8 @@ class UserData extends Component {
     }
 
     handleSubmit(){
+        this.setState({submitted: true});
+        console.log("Hello");
         class Influencer {
             constructor(name, location, businessType, engagement, targetCommunity, targetAge, targetGender, targetEthnicity) {
                 this.name = name;
@@ -160,40 +174,33 @@ class UserData extends Component {
         }
         
         const influencers = [
-            new Influencer("Influencer1", "New York", "Ecommerce", 5000, "Tech", 25, "Male", "Caucasian"),
-            new Influencer("Influencer2", "Los Angeles", "Retail", 3000, "Fashion", 30, "Female", "Hispanic"),
-            new Influencer("Influencer3", "San Francisco", "Restaurant", 10000, "Food", 35, "Male", "Asian"),
-            new Influencer("Influencer4", "New York", "Ecommerce", 8000, "Beauty", 28, "Female", "Caucasian"),
-            new Influencer("Influencer5", "Los Angeles", "Retail", 2000, "Fashion", 25, "Male", "African American")
+            new Influencer("John Wish", "Regina", "Ecommerce", 5000, "Colleges", 25, "Male", "Asian"),
+            new Influencer("Rachel Green", "Saskatoon", "Retail", 3000, "Residential", 30, "Female", "American"),
+            new Influencer("Jack Ryan", "Prince Albert", "Restaurant", 10000, "Residential", 35, "Male", "Asian"),
+            new Influencer("James Greer", "Calgary", "Ecommerce", 8000, "Residential", 28, "Male", "American"),
+            new Influencer("Jasmine Kaur", "Regina", "Retail", 2000, "Others", 25, "Female", "African")
         ];
         
-        const businessHeadquarters = "New York";
-        const businessLocations = ["Los Angeles", "San Francisco"];
+        const businessHeadquarters = this.state.business.headQuarters;
+        const businessLocations = this.state.business.locationPostalCodes;
         
         const influencersByLocation = filterByLocation(influencers, businessHeadquarters, businessLocations);
         
-        const businessType = "Ecommerce";
+        const businessType = this.state.business.typeOfBusiness[0].type;
         const influencersByBusinessType = filterByBusinessType(influencersByLocation, businessType);
         
         influencersByBusinessType.sort(sortByEngagement);
         
-        const targetCommunity = "Tech";
-        const targetAge = 25;
-        const targetGender = "Male";
-        const targetEthnicity = "Caucasian";
+        const targetCommunity = this.state.business.targetCommunity[0].community;
+        const targetAge = (this.state.business.targetAgeRange.min + this.state.business.targetAgeRange.min)/2;
+        const targetGender = this.state.business.targetGender[0].gender;
+        const targetEthnicity = this.state.business.targetEthnicity[0].ethnicity;
         
         const shortlistedInfluencers = createShortlist(influencersByBusinessType, targetCommunity, targetAge, targetGender, targetEthnicity);
-        
-        console.log("Shortlist of influencers:");
 
-        return(
-            <div>
-                {shortlistedInfluencers.map(({influencer}) => (
-                    <p>{influencer.name}</p>
-                ))}
-            </div>
-           
-        );
+        console.log("Shortlist of influencers:");
+        this.setState({result: shortlistedInfluencers});
+        shortlistedInfluencers.forEach(influencer => console.log(influencer.name));
                 
     }
 
@@ -220,6 +227,24 @@ class UserData extends Component {
                         {this.state.userType === "business" ? (
                         <div className="shadow container px-5 mt-3 py-4">
                             <div className="mt-1">
+                                <span>Type of Business:</span>
+                                {this.state.business.typeOfBusiness.map(({type, checked}, index) => (
+                                    <div className="ms-3">
+                                        <input
+                                            type="checkbox"
+                                            id={index}
+                                            name={type}
+                                            value={type}
+                                            checked={checked}
+                                            onChange={() => this.handleTypeBussinessChange(index)}
+                                            className="me-2"
+                                        />
+                                        <label>{type}</label>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="mt-5">
                                 <span>Goals:</span>
                                 {this.state.business.goals.map(({goal, checked}, index) => (
                                     <div className="ms-3">
@@ -237,20 +262,20 @@ class UserData extends Component {
                                 ))}
                             </div>
 
-                            <div className="row my-3">
+                            <div className="row mt-5">
                                 <label className="form-label col-3 align-middle">Head Quarters Address: </label>
                                 <input type="text" className="mx-2 col-2" value={this.state.business.headQuarters.city} placeholder="City" onChange={(e) => {let data = this.state.business; data.headQuarters.city = e.target.value; this.setState({business: data})}}/>
                                 <input type="text" className="mx-2 col-3" value={this.state.business.headQuarters.province} placeholder="Province" onChange={(e) => {let data = this.state.business; data.headQuarters.province = e.target.value; this.setState({business: data})}}/>
                                 <input type="text" className="mx-2 col-2" value={this.state.business.headQuarters.postalCode} placeholder="Postal Code" onChange={(e) => {let data = this.state.business; data.headQuarters.postalCode = e.target.value; this.setState({business: data})}}/>
                             </div>
 
-                            <div className="row my-3">
+                            <div className="row mt-5">
                                 <label className="form-label col-3 align-middle">Number of Locations: </label>
                                 <input type="text" className="mx-2 col-3" value={this.state.business.numberLocations} onChange={(e) => {let data = this.state.business; data.numberLocations = e.target.value; this.setState({business: data})}}/>
                             </div>
 
-                            <div className="row my-3">
-                                <label className="form-label col-3 align-middle">Locations Postal Codes: </label>
+                            <div className="row mt-5">
+                                <label className="form-label col-3 align-middle">Locations Postal Code: </label>
                                 <input type="text" className="mx-2 col-3" value={this.state.business.locationPostalCodes} onChange={(e) => {let data = this.state.business; data.locationPostalCodes = e.target.value; this.setState({business: data})}}/>
                             </div>
 
@@ -272,7 +297,7 @@ class UserData extends Component {
                                 ))}
                             </div>
                                 
-                            <div className="row my-3">
+                            <div className="row my-5">
                                 <label className="form-label col-3 align-middle">Target Age: </label>
                                 <input type="text" className="col-2" value={this.state.business.targetAgeRange.min} placeholder="min" onChange={(e) => {let data = this.state.business; data.targetAgeRange.min = e.target.value; this.setState({business: data})}}/>
                                 <span className="fw-bold col-1 text-center">-</span>
@@ -316,7 +341,7 @@ class UserData extends Component {
                             </div>
 
                             <div className="text-end m-4">
-                                <button className="p-2 me-5 submitButton" onSubmit={() => this.handleSubmit()}>Submit</button>
+                                <button className="p-2 me-5 submitButton" onClick={() => this.handleSubmit()}>Submit</button>
                             </div>
                         </div>
                         ) : (
