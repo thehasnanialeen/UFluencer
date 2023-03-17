@@ -264,4 +264,50 @@ footer{
     font-size: 16px;
     margin-bottom: 20px;
   }
+  .loginsignupform{
+    background-color: #f2f2f2;
+    padding: 29px;
+    height: 53%;
+    grid-column-start: 2;
+    grid-column-end:3;
+}
+  #loginsize{
+    font-size: x-large;
+    font-weight:bold;
+    margin-bottom: 100px;
+}
+  
+  .input-field{
+    font-size: large;
+}
+  
+  .loginpass{
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 100%;
+    height: 25px;
+}
+  
+  .buttonlogin{
+    float: right;
+    padding: 3px;
+    width: 50px;
+}
+
+  .logincenter{
+    justify-self: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 20px;
+    width: 55%;
+}  
+  
+  .login-container{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr;
+}
 }
