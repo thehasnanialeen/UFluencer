@@ -177,11 +177,11 @@ class UserData extends Component {
         }
         
         const influencers = [
-            new Influencer("John Wish", "Regina", "Ecommerce", 5000, "Colleges", 25, "Male", "Asian"),
-            new Influencer("Rachel Green", "Saskatoon", "Retail", 3000, "Residential", 30, "Female", "American"),
-            new Influencer("Jack Ryan", "Prince Albert", "Restaurant", 10000, "Residential", 35, "Male", "Asian"),
-            new Influencer("James Greer", "Calgary", "Ecommerce", 8000, "Residential", 28, "Male", "American"),
-            new Influencer("Jasmine Kaur", "Regina", "Retail", 2000, "Others", 25, "Female", "African")
+            new Influencer("John Wish", "Regina", "Ecommerce", 5000, "Colleges", 25, "Male", "Asian", "10", "Instagram"),
+            new Influencer("Rachel Green", "Saskatoon", "Retail", 3000, "Residential", 30, "Female", "American", "9", "YouTube"),
+            new Influencer("Jack Ryan", "Prince Albert", "Restaurant", 10000, "Residential", 35, "Male", "Asian", "12", "Instagram"),
+            new Influencer("James Greer", "Calgary", "Ecommerce", 8000, "Residential", 28, "Male", "American", "8", "Facebook"),
+            new Influencer("Jasmine Kaur", "Regina", "Retail", 2000, "Others", 25, "Female", "African", "10", "Twitter")
         ];
         
         this.setState({influencers: influencers});
@@ -356,26 +356,35 @@ class UserData extends Component {
                         )}
                     </form>
                 </div>) : (
-                    <div className="container">
+                    <div className="container row justify-content-center">
                         <div className="col-3"></div>
+                        <div className="col-6">
                         {this.state.result.length > 0 ? this.state.result.map : this.state.influencers.map((influencer) => (
 
-                        <div className="techuserques col-6">
-                            <span><i class="bi bi-person-circle"></i>{influencer.name}</span>
-                       
-                            <div className="userdetails">
-                                <span> Location: {influencer.location} </span>
-                                <span> Optimized score: {influencer.age/40*100}/100 </span>
-                                <span> Social media health: {influencer.age/60*100}/100 </span>
-                                <span> Preffered platform: {influencer.prefferedPlatforms} </span>
-                                <p> Has a following of {influencer.engagement} on {influencer.prefferedPlatforms}</p>
-                                <span> Past industry impact score: {influencer.businessType} - {influencer.age/40*100}/100 </span>
-                            
-                                <span> Community type: {influencer.targetCommunity}         </span>
-                                <span> Pricing: ${influencer.price}/ 500 CPA </span>
+                        <div className="techuserques card m-5 shadow">
+                            <span className="card-title m-4 fs-4"><i class="bi bi-person-circle me-2"></i>{influencer.name}</span>
+                    
+                            <div className="userdetails card-text p-4 pe-2 pt-2">
+                                <span className="m-3"> <b>Location: </b>{influencer.location} </span>
+                                <br></br>
+                                <span className="m-3"> <b>Optimized score: </b>{influencer.age /(40*100)}/100 </span>
+                                <br></br>
+                                <span className="m-3"><b> Social media health: </b>{influencer.age /(60*100)}/100 </span>
+                                <br></br>
+                                <span className="m-3"> <b>Preffered platform: </b>{influencer.prefferedPlatforms} </span>
+                                <br></br>
+                                <span className="m-3"> Has a following of {influencer.engagement} on {influencer.prefferedPlatforms}</span>
+                                <br></br>
+                                <span className="m-3"> <b>Past industry impact score: </b>{influencer.businessType} - {influencer.age/ (40*100)}/100 </span>
+                                <br></br>
+                                <span className="m-3"> <b>Community type: </b>{influencer.targetCommunity}</span>
+                                <br></br>
+                                <span className="m-3"> <b> Pricing: </b> ${influencer.price} / 500 CPA </span>
                             </div>
                         </div>
                     ))}
+                    </div>
+                    <div className="col-3"></div>
                     </div>
                 )}
                 <Footer/>
