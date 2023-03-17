@@ -79,17 +79,17 @@ function App() {
               <Carousel variant='dark' indicators={false}>
                 <Carousel.Item interval={3000}>
                   <img src='./BrainStorm..png'></img>
-                  <span className="card-title ms-1 fs-4 fw-bold">BrainStorm</span>
+                  <span className="card-title ms-1 fs-4 fw-bold align-middle">BrainStorm</span>
                   <p className="card-text text-center my-2">"UFluence has been a game changer for our influencer marketing campaigns. The platform is easy to use and has helped us connect with the right influencers for our brand. The analytics and insights have also been extremely helpful in measuring the success of our campaigns.We've tried several influencer marketing platforms, but UFluence stands out in terms of their customer service and support. The team is always responsive and goes above and beyond to help us achieve our goals."</p>
                 </Carousel.Item>
                 <Carousel.Item interval={3000}>
                   <img src='./Superrr.png'></img>
-                  <span className="card-title ms-1 fs-4 fw-bold">Superrr</span>
+                  <span className="card-title ms-1 fs-4 fw-bold align-middle">Superrr</span>
                   <p className="card-text text-center my-2">"UFluence has exceeded our expectations in terms of the quality of influencers we've been able to connect with. The platform is intuitive and user-friendly, and we've seen a significant increase in engagement and conversions since incorporating influencer marketing into our strategy"</p>
                 </Carousel.Item>
                 <Carousel.Item interval={3000}>
                   <img src='./kingfisher enterprises.png'></img>
-                  <span className="card-title ms-1 fs-4 fw-bold">Kingfisher Enterprises</span>
+                  <span className="card-title ms-1 fs-4 fw-bold align-middle">Kingfisher Enterprises</span>
                   <p className="card-text text-center my-2">"As a small business, we were hesitant to invest in influencer marketing, but UFluence made it accessible and affordable. We've been able to connect with influencers who align with our values and mission, and the platform has helped us grow our brand in a meaningful way. UFluence has been instrumental in helping us expand our reach and connect with our target audience. The platform's data-driven approach has allowed us to make informed decisions about our influencer campaigns, and we've seen a significant return on investment as a result."</p>
                 </Carousel.Item>
             </Carousel>

@@ -138,7 +138,7 @@ class UserData extends Component {
         this.setState({submitted: true});
         console.log("Hello");
         class Influencer {
-            constructor(name, location, businessType, engagement, targetCommunity, targetAge, targetGender, targetEthnicity) {
+            constructor(name, location, businessType, engagement, targetCommunity, targetAge, targetGender, targetEthnicity, price, prefferedPlatforms) {
                 this.name = name;
                 this.location = location;
                 this.businessType = businessType;
@@ -147,6 +147,8 @@ class UserData extends Component {
                 this.targetAge = targetAge;
                 this.targetGender = targetGender;
                 this.targetEthnicity = targetEthnicity;
+                this.price = price;
+                this.prefferedPlatforms = prefferedPlatforms;
             }
         }
         
@@ -346,31 +348,31 @@ class UserData extends Component {
                         </div>
                         ) : (
                         <div>
-                            <div class="gridcat">
-                    <div class="techuserques">
-                        <img src="profilepicture.PNG" class="profilepicture"> 
-                        <label> Alex </label>
-                        <br> 
-                        <div class="userdetails">
-                        <span> Location: South Regina </span>
-                        <span> Optimized score: 82/100 </span>
-                        <span> Social media health: 70/100 </span>
-                        <span> Preffered platform: Instagram </span>
-                        <br>
-                        <p> With a following of 5000+ on Instagram, I love music, chinese food and my followers are a major  </p>
-                        <span> Past industry impact score: Fast food - 50/100 </span>
-                        <br>
-                        <span> Community type: Residential         </span>
-                        <span> Pricing: $100/ 500 CPA </span>
-                        <button> <a href="techuseranswer.html"> Add to interact  </a></button>
-
-                </div>
+                            
                         </div>
                         )}
                     </form>
                 </div>) : (
                     <div className="container">
-                        
+                        <div className="col-3"></div>
+                        {this.state.result.map((influencer) => (
+
+                        <div className="techuserques col-6">
+                            <span><i class="bi bi-person-circle"></i>{influencer.name}</span>
+                       
+                            <div className="userdetails">
+                                <span> Location: {influencer.location} </span>
+                                <span> Optimized score: {influencer.age/40*100}/100 </span>
+                                <span> Social media health: {influencer.age/60*100}/100 </span>
+                                <span> Preffered platform: {influencer.prefferedPlatforms} </span>
+                                <p> Has a following of {influencer.engagement} on {influencer.prefferedPlatforms}</p>
+                                <span> Past industry impact score: {influencer.businessType} - {influencer.age/40*100}/100 </span>
+                            
+                                <span> Community type: {influencer.targetCommunity}         </span>
+                                <span> Pricing: ${influencer.price}/ 500 CPA </span>
+                            </div>
+                        </div>
+                    ))}
                     </div>
                 )}
                 <Footer/>
