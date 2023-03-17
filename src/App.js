@@ -117,15 +117,15 @@ function App() {
             <h2>Our services</h2>
           </div>
           <div className='card-body'>
-            <p className="card-text">We offer a variety of influencer marketing services to help you grow your business:</p>
+            <p className="card-text">We offer a variety of influencer marketing services, at the 'glocal' level to help you grow your business.</p>
             <ul className="service-list">
               <li className="service-item">
                 <div className="service-icon">
                   <i className="fas fa-users"></i>
                 </div>
                 <div className="service-content">
-                  <h3 className="service-title">Influencer identification</h3>
-                  <p className="service-text">We help you find the right influencers for your brand based on your target audience and budget.</p>
+                  <h3 className="service-title">Optimised Influencer Identification</h3>
+                  <p className="service-text">Using our proprietary algorithm, we can match businesses with the right influencers who have the desired audience demographics, interests, and engagement rates.</p>
                 </div>
               </li>
               <li className="service-item">
@@ -133,8 +133,8 @@ function App() {
                   <i className="fas fa-chart-line"></i>
                 </div>
                 <div className="service-content">
-                  <h3 className="service-title">Campaign management</h3>
-                  <p className="service-text">We manage your influencer marketing campaigns from start to finish, ensuring maximum ROI.</p>
+                  <h3 className="service-title">Analytics and Reporting</h3>
+                  <p className="service-text">We provide detailed analytics and reports to help businesses track the success of their influencer campaigns and make data-driven decisions for future campaigns.</p>
                 </div>
               </li>
               <li className="service-item">
@@ -142,8 +142,8 @@ function App() {
                   <i className="fas fa-handshake"></i>
                 </div>
                 <div className="service-content">
-                  <h3 className="service-title">Influencer outreach</h3>
-                  <p className="service-text">We handle all communication with influencers on your behalf, making sure they promote your brand effectively.</p>
+                  <h3 className="service-title">Influencer Outreach</h3>
+                  <p className="service-text">We handle all communication with influencers on your behalf, making sure they promote your brand effectively and offer resources to help businesses learn about influencer marketing best practices, understand the latest trends and changes in the industry, and make informed decisions about their influencer marketing strategy.</p>
                 </div>
               </li>
             </ul>
