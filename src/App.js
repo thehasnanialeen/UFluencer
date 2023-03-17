@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
 
 
 function App() {
@@ -64,23 +66,41 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App d-flex flex-column min-vh-100">
       <Header></Header>
 
       <section className='container'>
-        <div className="card testimonial mt-5">
+
+        <div className="card testimonial mt-5 shadow" >
           <div className="card-header text-center">
             <h2>What our customers think of us</h2>
           </div>
           <div className='card-body'>
-            <img src='./logo192.png'></img>
-            <span className="card-title ms-1 fs-4 fw-bold">ShoppersPartner</span>
-            <p className="card-text text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis elit in velit fringilla, sit amet dictum sapien hendrerit. Phasellus non libero ac odio pulvinar vestibulum sit amet in massa. Integer aliquam velit vel massa dictum, et euismod quam dignissim. Donec a diam vel dolor venenatis blandit. Curabitur tincidunt ante at nulla posuere vestibulum. Donec lacinia justo eget magna bibendum, a hendrerit tortor fringilla. Duis commodo est vitae libero varius efficitur. Vestibulum non massa commodo, ultricies risus id, commodo lorem. Vestibulum semper lectus tellus, a lacinia massa commodo vel. Donec egestas molestie ex, vel consequat risus malesuada nec. Nulla ullamcorper blandit malesuada. Sed fermentum mi et dui molestie ultricies."</p>
-            {/* <a href="#services" className="hero-cta">Learn more</a> */}
+              <Carousel variant='dark' indicators={false}>
+                <Carousel.Item interval={3000}>
+                  <img src='./logo192.png'></img>
+                  <span className="card-title ms-1 fs-4 fw-bold">ShoppersPartner</span>
+                  <p className="card-text text-center my-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis elit in velit fringilla, sit amet dictum sapien hendrerit. Phasellus non libero ac odio pulvinar vestibulum sit amet in massa. Integer aliquam velit vel massa dictum, et euismod quam dignissim. Donec a diam vel dolor venenatis blandit. Curabitur tincidunt ante at nulla posuere vestibulum. Donec lacinia justo eget magna bibendum, a hendrerit tortor fringilla. Duis commodo est vitae libero varius efficitur. Vestibulum non massa commodo, ultricies risus id, commodo lorem. Vestibulum semper lectus tellus, a lacinia massa commodo vel. Donec egestas molestie ex, vel consequat risus malesuada nec. Nulla ullamcorper blandit malesuada. Sed fermentum mi et dui molestie ultricies."</p>
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img src='./logo192.png'></img>
+                  <span className="card-title ms-1 fs-4 fw-bold">ShoppersPartner</span>
+                  <p className="card-text text-center my-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis elit in velit fringilla, sit amet dictum sapien hendrerit. Phasellus non libero ac odio pulvinar vestibulum sit amet in massa. Integer aliquam velit vel massa dictum, et euismod quam dignissim. Donec a diam vel dolor venenatis blandit. Curabitur tincidunt ante at nulla posuere vestibulum. Donec lacinia justo eget magna bibendum, a hendrerit tortor fringilla. Duis commodo est vitae libero varius efficitur. Vestibulum non massa commodo, ultricies risus id, commodo lorem. Vestibulum semper lectus tellus, a lacinia massa commodo vel. Donec egestas molestie ex, vel consequat risus malesuada nec. Nulla ullamcorper blandit malesuada. Sed fermentum mi et dui molestie ultricies."</p>
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img src='./logo192.png'></img>
+                  <span className="card-title ms-1 fs-4 fw-bold">ShoppersPartner</span>
+                  <p className="card-text text-center my-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis elit in velit fringilla, sit amet dictum sapien hendrerit. Phasellus non libero ac odio pulvinar vestibulum sit amet in massa. Integer aliquam velit vel massa dictum, et euismod quam dignissim. Donec a diam vel dolor venenatis blandit. Curabitur tincidunt ante at nulla posuere vestibulum. Donec lacinia justo eget magna bibendum, a hendrerit tortor fringilla. Duis commodo est vitae libero varius efficitur. Vestibulum non massa commodo, ultricies risus id, commodo lorem. Vestibulum semper lectus tellus, a lacinia massa commodo vel. Donec egestas molestie ex, vel consequat risus malesuada nec. Nulla ullamcorper blandit malesuada. Sed fermentum mi et dui molestie ultricies."</p>
+                </Carousel.Item>
+            </Carousel>
           </div>
         </div>
 
-        <div id="about" className="card mt-5">
+        <div className='mt-5'>
+          <h4 className='text-end'>Why wait? <button className='userDataButton p-2'><Link to="/userdata">Let's get started</Link></button></h4>
+        </div>
+
+        <div id="about" className="card mt-5 shadow">
           <div className="card-header text-center">
             <h2>About us</h2>
           </div>
@@ -91,7 +111,7 @@ function App() {
           </div>
         </div>
 
-        <div id="services" className="card mt-5">
+        <div id="services" className="card mt-5 shadow">
           <div className="card-header text-center">
             <h2>Our services</h2>
           </div>
@@ -129,14 +149,14 @@ function App() {
           </div>
         </div>
 
-        <div id="pricing" className="card mt-5">
+        <div id="pricing" className="card mt-5 shadow" >
           <div className="card-header text-center">
             <h2>Our pricing</h2>
           </div>
           <div className='card-body'>
             <p className="card-text text-center">We offer flexible pricing plans to meet the needs of businesses of all sizes:</p>
             <ul className="pricing-list">
-              <li className="pricing-item">
+              <li className="pricing-item me-3">
                 <div className="pricing-header">
                   <h3 className="pricing-title">Starter</h3>
                   <p className="pricing-price">$100/month</p>
