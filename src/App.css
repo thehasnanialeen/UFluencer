@@ -300,5 +300,10 @@ footer{
     width: 55%;
 }  
   
-  
+  .login-container{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr;
+}
 }
