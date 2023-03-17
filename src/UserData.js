@@ -99,6 +99,7 @@ class UserData extends Component {
                 ],
                 numInteractions: '',
             },
+            influencers: [],
             submitted: false,
             result: []
         }
@@ -183,6 +184,8 @@ class UserData extends Component {
             new Influencer("Jasmine Kaur", "Regina", "Retail", 2000, "Others", 25, "Female", "African")
         ];
         
+        this.setState({influencers: influencers});
+
         const businessHeadquarters = this.state.business.headQuarters;
         const businessLocations = this.state.business.locationPostalCodes;
         
@@ -355,7 +358,7 @@ class UserData extends Component {
                 </div>) : (
                     <div className="container">
                         <div className="col-3"></div>
-                        {this.state.result.map((influencer) => (
+                        {this.state.result.length > 0 ? this.state.result.map : this.state.influencers.map((influencer) => (
 
                         <div className="techuserques col-6">
                             <span><i class="bi bi-person-circle"></i>{influencer.name}</span>
