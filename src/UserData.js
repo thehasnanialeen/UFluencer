@@ -346,7 +346,25 @@ class UserData extends Component {
                         </div>
                         ) : (
                         <div>
+                            <div class="gridcat">
+                    <div class="techuserques">
+                        <img src="profilepicture.PNG" class="profilepicture"> 
+                        <label> Alex </label>
+                        <br> 
+                        <div class="userdetails">
+                        <span> Location: South Regina </span>
+                        <span> Optimized score: 82/100 </span>
+                        <span> Social media health: 70/100 </span>
+                        <span> Preffered platform: Instagram </span>
+                        <br>
+                        <p> With a following of 5000+ on Instagram, I love music, chinese food and my followers are a major  </p>
+                        <span> Past industry impact score: Fast food - 50/100 </span>
+                        <br>
+                        <span> Community type: Residential         </span>
+                        <span> Pricing: $100/ 500 CPA </span>
+                        <button> <a href="techuseranswer.html"> Add to interact  </a></button>
 
+                </div>
                         </div>
                         )}
                     </form>
